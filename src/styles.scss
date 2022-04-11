@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+/*
+====================  Variaveis customizadas  ===================================
+*/
+
+:root
+{
+    /*Quanto mais proxima do 1000 mais proxima do preto*/
+    --clr-main: hsl(207, 19%, 9%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-neutral-400: #2bc77d;
+    --clr-neutral-700: #035d57;
+    --font-main: 'Nunito', sans-serif;
+}
+
+/*
+====================  Default settings  ===================================
+*/
+
+header,
+body,
+footer,
+nav,
+h1,
+h2,
+h3,
+p
+{
+
+    list-style: none;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body 
+{
+    width: 100%;
+    display:flex;
+    margin: 0;
+    padding: 0;
+    overflow-x : hidden;
+}
+
+img
+{
+    max-width: 100%;
+    height: auto;
+}
+
+.font-main
+{
+    font-family: var(--font-main);
+}
+
