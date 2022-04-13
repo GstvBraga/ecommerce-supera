@@ -1,1 +1,19 @@
-<p>cart works!</p>
+<body>
+    <div class="products">
+        <div class="products-bg"></div>
+        <h1>Nossos Produtos</h1>
+        <div class="product-cards--wrapper">
+            <div class="card--wrapper" *ngFor="let item of allProducts">
+                <div class="card">
+                    <div class="card-image skeleton"></div>
+                    <div class="card-title skeleton skeleton-text">{{item.name}}</div>
+                    <div class="card-score skeleton skeleton-text">{{item.qnt}}</div>
+                    <div class="card-price skeleton skeleton-text">{{item.price}}</div>
+                    <div class="card-quantity skeleton skeleton-text"></div>
+                </div>
+            </div>
+        </div>
+        <div class="products-bg products-bg--bottom"></div>
+    </div>
+</body>
+

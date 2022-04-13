@@ -1,0 +1,223 @@
+/*
+====================  Começar com Mobile  ===================================
+*/
+
+body
+{
+    flex-direction: column;
+}
+
+.hero
+{
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+}
+
+.background-image
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+    z-index: -1;
+}
+
+/*
+====================  Texto utilizado como propaganda  ===================================
+*/
+
+.propaganda
+{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 100px;
+    left: 30px;
+    line-height: 2rem;
+    row-gap: 5px;
+}
+
+.propaganda > p
+{
+    background-color: white;
+    font-weight: 700;
+    width: max-content;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.hero > .down-arrow
+{
+    position: absolute;
+    width: 40px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: invert(100%);
+}
+
+/*
+====================  Aba dos produtos  ===================================
+*/
+
+.products
+{
+    display: flex;
+    width: 100%;
+    min-height: 80vh;
+    position: relative;
+    flex-direction: column;
+    padding-top: 110px;
+    padding-bottom: 130px;
+}
+
+.products-bg
+{
+    position: absolute;
+    top: -20px;
+    background-image: url('/assets/controller2.png');
+    width: 100vw;
+    height: 110px;
+    background-repeat:space no-repeat;
+    z-index: -2;
+}
+
+.products-bg--bottom
+{
+    top: unset;
+    bottom: 3px;
+    transform: rotateX(180deg);
+}
+
+/*
+====================  Titulo dos produtos  ===================================
+*/
+
+.products > h1
+{
+    align-self: center;
+}
+
+
+/*
+====================  Seleção de categoria e forma de ordenar os produtos  ===================================
+*/
+.category
+{
+    display: flex;
+    margin-top: 20px;
+    padding-left: 30px;
+    opacity: 70%;
+    column-gap: 10px;
+    padding-right: 30px;
+    font-size: 1.2rem;
+    background-color: var(--clr-neutral-200);
+    height: 4rem;
+    align-items: center;
+}
+
+.category > span:first-child,
+.order-by--wrapper > span:first-child
+{
+    color: var(--clr-main);
+    opacity: 100%;
+    font-weight: bold;
+}
+
+.order-by--wrapper
+{
+    display: flex;
+    margin-left: auto;
+    column-gap: 10px;
+}
+
+/*
+====================  Skeleton Loading dos produtos  ===================================
+*/
+
+
+.card
+{
+    display: grid;
+    height: 180px;
+    width: 90%;
+    margin-top: 50px;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "card-image title title"
+    "card-image score score"
+    "card-image price price"
+    "card-image add-to-cart add-to-cart";
+}
+
+.card-image
+{
+    grid-area: card-image;
+    justify-self: center;
+    height: 90px;
+    width: 90px;
+}
+.card-title
+{
+    grid-area: title;
+}
+.card-score
+{
+    grid-area: score;
+}
+.card-price
+{
+    grid-area: price;
+}
+
+.add-to-cart
+{
+    grid-area: add-to-cart;
+    width: 70%;
+    height: 1.5rem;
+    justify-self: center;
+}
+
+
+
+
+.skeleton
+{
+    opacity: .7;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading
+{
+    0%
+    {
+        background-color: hsl(200, 20%, 70%);
+    }
+
+    100%
+    {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
+
+.skeleton-text
+{
+    width: 100%;
+    height: 0.5rem;
+}
+
+.skeleton-text:last-of-type
+{
+    width: 80%;
+}
+
+.skeleton-loading--wrapper
+{
+    display: flex;
+    row-gap: 30px;
+    justify-content: center;
+}

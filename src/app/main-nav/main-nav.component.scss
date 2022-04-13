@@ -1,0 +1,33 @@
+nav
+{
+    display: flex;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    z-index: 1000;
+    color: var(--clr-neutral-100);
+    background-color: #0c0c0c;
+}
+
+.nav-list
+{
+    display: flex;
+    width: 100%;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-icon
+{
+    display: none;
+    width: 60px;
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+.logo
+{
+    margin-right: auto;
+    font-weight: 800;
+}

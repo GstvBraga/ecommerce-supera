@@ -1,1 +1,44 @@
-<div *ngFor="let product of allProducts">{{product.id}}</div>
+<body>
+    <div class="hero">
+        <img loading="lazy" class="background-image" src="/assets/background-image2.webp" alt="aaa">
+        <div class="propaganda">
+            <p>Os melhores jogos</p>
+            <p>Com os melhores preços</p>
+        </div>
+        <img class="down-arrow" src="/assets/arrow-down-icon.svg" alt="">
+    </div>
+
+    <div class="products">
+        <!-- Adiciona o background dos produtos(Imagem de botões dos controles) -->
+        <div class="products-bg"></div>
+        <h1>Nossos Produtos</h1>
+        <div class="category">
+            <span>categoria </span>
+            <span>jogos▾</span>
+            <div class="order-by--wrapper">
+                <span>ordenar </span>
+                <span>preço▾</span>
+            </div>
+        </div>
+        <div class="product-cards--wrapper">
+            <div class="cards--wrapper" *ngFor="let item of allProducts">
+                <div class="card">
+                    <div class="card-image skeleton"></div>
+                    <div class="card-title skeleton skeleton-text">{{item.name}}</div>
+                    <div class="card-score skeleton skeleton-text">{{item.score}}</div>
+                    <div class="card-price skeleton skeleton-text">{{item.price}}</div>
+                    <button (click)="addToCart(item)" class="add-to-cart">Adicionar ao carrinho</button>
+                </div>
+            </div>
+        </div>
+        <div class="products-bg products-bg--bottom"></div>
+    </div>
+</body>
+
+
+
+
+<!-- <div class="card-title skeleton skeleton-text"></div>
+                    <div class="card-score skeleton skeleton-text"></div>
+                    <div class="card-price skeleton skeleton-text"></div>
+                    <button class="add-to-cart"></button> -->

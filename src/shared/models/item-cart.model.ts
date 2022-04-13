@@ -1,11 +1,11 @@
-class Product {
+class ItemCart{
     constructor(
         public id: number,
+        public img: any,
         public name: string,
         public price: number,
-        public score: number,
-        public image: string
+        public quantity: number
     ){}
 }
 
-export {Product}
+export {ItemCart}
