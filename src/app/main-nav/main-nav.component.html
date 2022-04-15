@@ -1,11 +1,25 @@
 <nav>
     <ul class="nav-list">
-        <li class="logo">SUPERA JOGOS</li>
+        <li routerLink="/" class="logo">SUPERA JOGOS</li>
         <li class="cart-icon">
             <img src="/assets/cart-icon.svg" alt="">
         </li>
-        <li class="sidebar">
-            <button></button>
-        </li>
+        <button *ngIf="screenWidth < 1200" class="sidebar--btn" (click)="showSidebar()"><i class="fas fa-bars" style="font-size: 1.5rem"></i></button>
+        
     </ul>
+
+    <div class="sidebar font-main">
+        <i (click)="showSidebar()" *ngIf="screenWidth < 1200" class="fas fa-times close-sidebar" style="font-size: 2rem"></i>
+        <div class="side-content">
+            <i (click)="showSidebar()" routerLink="/" class="fas fa-home" style="font-size: 1.5rem">
+                <h1>Inicio</h1>
+            </i>
+            <i (click)="showSidebar()" href="#products" role="button" class="fas fa-shopping-bag" style="font-size: 1.5rem">
+                <h1>Nossos produtos</h1>
+            </i>
+            <i (click)="showSidebar()" routerLink="/carrinho" class="fas fa-shopping-cart" style="font-size: 1.5rem">
+                <h1>Carrinho</h1>
+            </i>
+        </div>
+    </div>
 </nav>

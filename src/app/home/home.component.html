@@ -8,7 +8,7 @@
         <img class="down-arrow" src="/assets/arrow-down-icon.svg" alt="">
     </div>
 
-    <div class="products">
+    <div id="#products" class="products">
         <!-- Adiciona o background dos produtos(Imagem de botões dos controles) -->
         <div class="products-bg"></div>
         <h1>Nossos Produtos</h1>
@@ -23,17 +23,26 @@
         <div class="product-cards--wrapper">
             <div class="cards--wrapper" *ngFor="let item of allProducts">
                 <div class="card">
-                    <div class="card-image skeleton"></div>
+                    <img [src]="'/assets/'+item.image" class="card-image skeleton">
                     <div class="card-title skeleton skeleton-text">{{item.name}}</div>
                     <div class="card-score skeleton skeleton-text">{{item.score}}</div>
-                    <div class="card-price skeleton skeleton-text">{{item.price}}</div>
-                    <button (click)="addToCart(item)" class="add-to-cart">Adicionar ao carrinho</button>
+                    <div class="card-price skeleton skeleton-text">{{item.price | currency:'BRL'}}</div>
+                    <button 
+                    [swal]="itemAddedToCart"
+                    class="add-to-cart">Adicionar ao carrinho</button>
+                    <swal 
+                    #itemAddedToCart 
+                    title="Item adicionado ao Carrinho"
+                    icon="success"
+                    (confirm)="addToCart(item)"></swal>
                 </div>
             </div>
         </div>
         <div class="products-bg products-bg--bottom"></div>
     </div>
+    
 </body>
+
 
 
 

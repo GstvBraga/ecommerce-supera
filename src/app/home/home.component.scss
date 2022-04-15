@@ -83,6 +83,7 @@ body
     height: 110px;
     background-repeat:space no-repeat;
     z-index: -2;
+    opacity: 0.7;
 }
 
 .products-bg--bottom
@@ -152,22 +153,31 @@ body
     "card-image score score"
     "card-image price price"
     "card-image add-to-cart add-to-cart";
+    box-shadow: 1px 1px 3px 1px var(--clr-neutral-200);
+    border-radius: 4px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .card-image
 {
     grid-area: card-image;
     justify-self: center;
+    align-self: center;
     height: 90px;
     width: 90px;
 }
 .card-title
 {
     grid-area: title;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 .card-score
 {
     grid-area: score;
+    margin-top: 10px;
 }
 .card-price
 {
@@ -177,9 +187,12 @@ body
 .add-to-cart
 {
     grid-area: add-to-cart;
-    width: 70%;
+    width: 80%;
     height: 1.5rem;
     justify-self: center;
+    background-color: var(--clr-main);
+    border-radius: 3px;
+    border: none;
 }
 
 
@@ -220,4 +233,37 @@ body
     display: flex;
     row-gap: 30px;
     justify-content: center;
+}
+
+/*
+====================  Media Query para Desktop  ===================================
+*/
+
+@media (min-width: 1200px) {
+
+    .product-cards--wrapper
+    {
+        display: flex;
+        align-self: center;
+        flex-wrap: wrap;
+        row-gap: 40px;
+        column-gap: 5%;
+        max-width: 1000px;
+        justify-content: center;
+    }
+
+    .card
+    {
+        width: 250px;
+        height: 300px;
+        padding-top: 20px;
+        grid-template-columns: 1fr 6fr;
+        grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "card-image card-image"
+        "... title"
+        "... score"
+        "... price"
+        "add-to-cart add-to-cart";
+    }
 }

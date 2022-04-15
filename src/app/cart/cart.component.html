@@ -1,19 +1,59 @@
 <body>
-    <div class="products">
+    <div class="products" *ngIf="active; else cartEmpty">
         <div class="products-bg"></div>
-        <h1>Nossos Produtos</h1>
+        <h1>Produtos no carrinho</h1>
         <div class="product-cards--wrapper">
             <div class="card--wrapper" *ngFor="let item of allProducts">
                 <div class="card">
-                    <div class="card-image skeleton"></div>
+                    <img [src]="'/assets/'+item.image" class="card-image skeleton">
                     <div class="card-title skeleton skeleton-text">{{item.name}}</div>
-                    <div class="card-score skeleton skeleton-text">{{item.qnt}}</div>
-                    <div class="card-price skeleton skeleton-text">{{item.price}}</div>
-                    <div class="card-quantity skeleton skeleton-text"></div>
+                    <div class="card-score skeleton skeleton-text">{{item.score}}</div>
+                    <div class="card-price skeleton skeleton-text">{{item.price | currency:'BRL'}}</div>
+                    <div class="card-quantity skeleton skeleton-text">
+                        <button (click)="decreaseItem(item)" class="minus-btn">
+                            <i class="fas fa-minus-circle" style="font-size: 1.2rem; color: rgb(255, 97, 97);"></i>
+                        </button>
+                        <input type="number" [placeholder]="[item.quantity]" class="input-quantity" [value]="[item.quantity]" disabled="true">
+                        <button (click)="addItem(item)" class="minus-btn" style="font-size: 1.2rem; color: green;">
+                            <i class="fas fa-plus-circle"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="total-price--wrapper">
+            <div class="line--spacer"></div>
+            <h1>Preço Total</h1>
+            <div class="total-price-items" *ngFor='let item of allProducts'>
+                <span class="product-span">
+                    {{item.name}} x{{item.quantity}}
+                </span>
+                <span class="product-price">
+                    {{item.price * item.quantity | currency: 'BRL'}}
+                </span>
+            </div>
+            <div class="total-price--show">
+                <div class="line--spacer"></div>
+                <h2 class="total-text">Total:</h2>
+                <h2 class="total-price-number">{{totalPrice | currency: 'BRL' }}</h2>
+            </div>
+            <button [swal]="finishShopping" class="finish-shopping">Finalizar compra</button>
+            <swal 
+                #finishShopping
+                title="Compra realizada com sucesso"
+                icon="success"
+                (confirm)="clearCart()">
+            </swal>
+        </div>
         <div class="products-bg products-bg--bottom"></div>
     </div>
+
+    <ng-template #cartEmpty>
+        <div class="cartEmpty">
+            <div class="content-empty">
+                <h1>O seu carrinho está vazio veja nossos produtos bem <a data-bs-toggle="modal" href="#exampleModalToggle" role="button">aqui</a></h1>
+            </div>
+        </div>
+    </ng-template>
 </body>
 

@@ -2,11 +2,12 @@ nav
 {
     display: flex;
     position: fixed;
-    height: 100px;
+    height: 80px;
     width: 100%;
     z-index: 1000;
-    color: var(--clr-neutral-100);
-    background-color: #0c0c0c;
+    color: black;
+    background-color: var(--clr-neutral-100);
+    box-shadow: 2px 2px 3px var(--clr-neutral-200);
 }
 
 .nav-list
@@ -30,4 +31,64 @@ nav
 {
     margin-right: auto;
     font-weight: 800;
+}
+
+.sidebar--btn
+{
+    margin-right: 30px;
+    background: none;
+    border: none;
+}
+
+
+
+/* ================== Sidebar ======================= */
+
+.sidebar
+{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: -100vw;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    transition: right 0.4s;
+}
+
+.close-sidebar
+{
+    color: #f56470;
+    position: absolute;
+    left: calc((100vw * 0.7) - 30px);
+    top: 30px;
+    cursor: pointer;
+}
+
+.side-content
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    width: 80%;
+    height: 100%;
+    row-gap: 40px;
+}
+
+.side-content > i
+{
+    display: flex;
+    align-items: baseline;
+    padding-left: 10%;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.side-content > i > h1
+{
+    position: absolute;
+    left: 75px;
+    bottom: 0;
+    font-size: 1.2rem;
 }

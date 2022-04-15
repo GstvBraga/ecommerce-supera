@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
 
   public allProducts: any[] = [1,2,3,4,5,6,7,8,9];
   public totalPrice: number = 0;
+  public active: number = 0;
 
   constructor(
     private productsService: ProductsService,
@@ -20,21 +21,40 @@ export class CartComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-
-    this.allProducts = this.cartService.items  
-    this.totalPrice = this.cartService.calcTotalPrice()  
+    this.allProducts = this.cartService.items;
+    this.active = this.allProducts.length;
+    this.totalPrice = this.cartService.calcTotalPrice() ; 
       //removendo o skeleton loading assim que os produtos são recuperados do arquivo JSON
       setTimeout(() => {
         let skeleton = document.querySelectorAll('.skeleton')
         skeleton.forEach((e)=>{
-          e.classList.remove("skeleton-text")
-          e.classList.remove("skeleton")
+          e.classList.remove("skeleton-text");
+          e.classList.remove("skeleton");
+          if(e.classList.contains('card-score')){
+            e.innerHTML = 'Score: ' + e.innerHTML;
+          }
         })
       }, 0);
   }
 
   public addItem(item: ItemCart): void{
-    this.cartService.addItem(item)
-    this.totalPrice = this.cartService.calcTotalPrice()
+    this.cartService.addItem(item);
+    this.totalPrice = this.cartService.calcTotalPrice();
+  }
+
+  public decreaseItem(item: ItemCart): void{
+    this.cartService.decreaseItem(item);
+    this.totalPrice = this.cartService.calcTotalPrice();
+  }
+
+  public removeItem(item: ItemCart): void{
+    this.cartService.removeItem(item);
+    this.totalPrice = this.cartService.calcTotalPrice();
+  }
+
+  public clearCart(){
+    this.cartService.clearItems();
+    this.totalPrice = 0;
+    window.location.reload();
   }
 }

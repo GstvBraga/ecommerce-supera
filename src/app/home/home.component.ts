@@ -13,6 +13,7 @@ import { ProductsService } from 'src/shared/services/products.service';
 export class HomeComponent implements OnInit {
 
   public allProducts: any[] = [1,2,3,4,5,6,7,8,9];
+  public keys: any;
 
   constructor(
     private productsService: ProductsService,
@@ -25,15 +26,15 @@ export class HomeComponent implements OnInit {
     .subscribe((products: Product[])=>{
       this.allProducts = [];
       this.allProducts = products;
-      console.log(this.allProducts);
-
       //removendo o skeleton loading assim que os produtos são recuperados do arquivo JSON
       setTimeout(() => {
         let skeleton = document.querySelectorAll('.skeleton')
         skeleton.forEach((e)=>{
           e.classList.remove("skeleton-text")
           e.classList.remove("skeleton")
-          console.log(e);
+          if(e.classList.contains('card-score')){
+            e.innerHTML = 'Score: ' + e.innerHTML
+          }
         })
       }, 0);
     });
@@ -45,11 +46,10 @@ export class HomeComponent implements OnInit {
       product.id,
       product.image,
       product.name,
+      product.score,
       product.price,
       1
     )
     this.cartService.addItem(itemCart)
-    console.log(this.cartService.items);
-    
   }
 }

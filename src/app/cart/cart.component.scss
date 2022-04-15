@@ -2,9 +2,21 @@
 ====================  Aba dos produtos  ===================================
 */
 
+.cartEmpty
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    width: 90%;
+    align-self: center;
+    justify-self: center;
+}
+
 body
 {
-    padding-top: 110px;
+    flex-direction: column;
+    padding-top: 100px;
     width: 100vw;
 }
 
@@ -16,7 +28,8 @@ body
     position: relative;
     flex-direction: column;
     padding-top: 110px;
-    padding-bottom: 130px;
+    padding-bottom: 160px;
+    align-items: center;
 }
 
 .products-bg
@@ -28,6 +41,7 @@ body
     height: 110px;
     background-repeat:space no-repeat;
     z-index: -2;
+    opacity: 0.7;
 }
 
 .products-bg--bottom
@@ -79,6 +93,11 @@ body
 ====================  Skeleton Loading dos produtos  ===================================
 */
 
+.product-cards--wrapper
+{
+    width: 100%;
+}
+
 
 .card
 {
@@ -87,18 +106,21 @@ body
     width: 90%;
     margin-top: 50px;
     grid-template-columns: 1.5fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr 0.5fr 1fr;
     grid-template-areas: 
     "card-image title title"
     "card-image score score"
     "card-image price price"
     "card-image card-quantity card-quantity";
+    box-shadow: 1px 1px 3px 1px var(--clr-neutral-200);
+    border-radius: 4px;
 }
 
 .card-image
 {
     grid-area: card-image;
     justify-self: center;
+    align-self: center;
     height: 90px;
     width: 90px;
 }
@@ -106,6 +128,9 @@ body
 .card-title
 {
     grid-area: title;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .card-score
@@ -121,6 +146,23 @@ body
 .card-quantity
 {
     grid-area: card-quantity;
+}
+
+
+.input-quantity
+{
+    width: 40px;
+    height: 1.5rem;
+    text-align: center;
+    padding-right: 3px;
+}
+
+.card-quantity > button
+{
+    border: none;
+    background: none;
+    border-radius: 50%;
+    transform: translateY(10%);
 }
 
 
@@ -161,4 +203,141 @@ body
     display: flex;
     row-gap: 30px;
     justify-content: center;
+}
+
+
+
+.total-price--wrapper
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    row-gap: 10px;
+    padding-bottom: 30px;
+}
+
+.line--spacer
+{
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 130vw;
+    border-bottom: 1px dotted #0c0c0c;
+}
+
+.total-price-items
+{
+    display: flex;
+    width: 80%;
+}
+
+.product-span
+{
+    color: green;
+}
+
+.product-price
+{
+    margin-left: auto;
+}
+
+.total-price--show
+{
+    display: flex;
+    position: relative;
+    width: 80%;
+    margin-top: 10px;
+}
+
+.total-price--show > h2
+{
+    font-size: 1.3rem;
+}
+
+.total-price--show > .line--spacer
+{
+    width: 100%;
+    top: -10px;
+}
+
+.total-price-number
+{
+    margin-left: auto;
+}
+
+button.finish-shopping
+{
+    width: 200px;
+    border: 0;
+    background-color: var(--clr-main);
+    height: 1.5rem;
+    border-radius: 3px;
+}
+
+/*
+====================  Media Query para Desktop  ===================================
+*/
+
+@media (min-width: 1200px) {
+
+    .products
+    {
+        flex-direction: row;
+        align-items: start;
+        padding-top: 150px;
+    }
+
+    .products > h1
+    {
+        position: absolute;
+        top: 140px;
+        left: 25%;
+        transform: translateX(-45%);
+    }
+
+    .product-cards--wrapper
+    {
+        display: flex;
+        align-self: flex-start;
+        flex-wrap: wrap;
+        row-gap: 40px;
+        column-gap: 5%;
+        max-width: 1000px;
+        justify-content: center;
+    }
+
+    .card
+    {
+        width: 250px;
+        height: 300px;
+        padding-top: 20px;
+        grid-template-columns: 1fr 6fr;
+        grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "card-image card-image"
+        "... title"
+        "... score"
+        "... price"
+        "card-quantity card-quantity";
+    }
+
+    .card-quantity
+    {
+        justify-self: center;
+    }
+
+    .total-price--wrapper
+    {
+        max-width: 800px;
+        margin-top: 0;
+        margin-right: 30px;
+    }
+
+    .total-price--wrapper > .line--spacer
+    {
+        display: none;
+    }
 }
