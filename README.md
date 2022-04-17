@@ -8,5 +8,4 @@ As imagens de preview estão disponiveis na pasta atual: mobile-home-preview.PNG
 
 ## Inicialização do projeto
 
-Para inicializar o projeto tenha instalado angular e o node js, entre na pasta clonada apartir do terminal utilizando: cd "caminho da pasta ecommerce-supera" uma vez dentro da pasta digite o comando npm install para instalar os modulos necessários, em seguida digite npm start, o projeto será iniciado em uma instancia do localhost que aparecerá no terminal, abra seu navegador e copie o link
-
+Para inicializar o projeto tenha instalado angular e o node js, entre na pasta clonada apartir do terminal utilizando: cd "caminho da pasta ecommerce-supera" uma vez dentro da pasta digite o comando npm install para instalar os modulos necessários, em seguida digite npm start, o projeto será iniciado em uma instancia do localhost que aparecerá no terminal, abra seu navegador e copie o link, caso os produtos não carregem entre no link do arquivo json no desafio e copie o link para a variavel dataRouteUrl em /src/shared/services/products.service.ts
