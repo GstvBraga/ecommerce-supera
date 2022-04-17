@@ -5,7 +5,7 @@
             <img src="/assets/cart-icon.svg" alt="">
         </li>
         <button *ngIf="screenWidth < 1200" class="sidebar--btn" (click)="showSidebar()"><i class="fas fa-bars" style="font-size: 1.5rem"></i></button>
-        
+        <i *ngIf="screenWidth > 1200" routerLink="/carrinho" class="fas fa-shopping-cart desktop-cart" style="font-size: 1.5rem"></i>
     </ul>
 
     <div class="sidebar font-main">
@@ -14,8 +14,8 @@
             <i (click)="showSidebar()" routerLink="/" class="fas fa-home" style="font-size: 1.5rem">
                 <h1>Inicio</h1>
             </i>
-            <i (click)="showSidebar()" href="#products" role="button" class="fas fa-shopping-bag" style="font-size: 1.5rem">
-                <h1>Nossos produtos</h1>
+            <i (click)="showSidebar()"  role="button" class="fas fa-shopping-bag" style="font-size: 1.5rem">
+                <a href="#products">Nossos produtos</a>
             </i>
             <i (click)="showSidebar()" routerLink="/carrinho" class="fas fa-shopping-cart" style="font-size: 1.5rem">
                 <h1>Carrinho</h1>

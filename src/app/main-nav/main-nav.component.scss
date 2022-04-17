@@ -31,6 +31,7 @@ nav
 {
     margin-right: auto;
     font-weight: 800;
+    cursor: pointer;
 }
 
 .sidebar--btn
@@ -85,10 +86,25 @@ nav
     position: relative;
 }
 
-.side-content > i > h1
+.side-content > i > h1,
+.side-content > i > a
 {
     position: absolute;
     left: 75px;
     bottom: 0;
     font-size: 1.2rem;
+}
+
+.desktop-cart
+{
+    margin-right: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
 }
